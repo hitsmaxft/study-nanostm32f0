@@ -40,17 +40,20 @@ int main(void)
 	
   MX_USB_DEVICE_Init();
 
+  uint8_t result;
   while (1) {
 
     //turn on
-
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
     HAL_Delay(500);
-    //turn off
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
-    HAL_Delay(500);
 
-    CDC_Transmit_FS(banner, strlen(banner));
+    result = CDC_Transmit_FS(banner, strlen(banner));
+
+    if (result == USBD_OK) {
+      //turn off when write ok
+      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+    }
+    HAL_Delay(500);
   }
 
 }

@@ -14,7 +14,7 @@
     "onboard_tools": [
       "stlink"
     ],
-    "openocd_board": "st_muselab_stm32f0",
+    "openocd_board": "nanostm32f0",
     "openocd_target": "stm32f0x",
     "svd_path": "STM32F0xx.svd"
   },
@@ -29,6 +29,7 @@
     "maximum_ram_size": 6144,
     "maximum_size": 32768,
     "protocol": "cmsis-dap",
+    "openocd_board": "nanostm32f0",
     "protocols": [
       "serial",
       "jlink",
