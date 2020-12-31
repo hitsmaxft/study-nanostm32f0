@@ -54,7 +54,7 @@
 // #define HAL_RTC_MODULE_ENABLED
 // #define HAL_SMARTCARD_MODULE_ENABLED
 // #define HAL_SMBUS_MODULE_ENABLED
-#define HAL_SPI_MODULE_ENABLED
+// #define HAL_SPI_MODULE_ENABLED
 // #define HAL_TIM_MODULE_ENABLED
 // #define HAL_TSC_MODULE_ENABLED
 // #define HAL_UART_MODULE_ENABLED
@@ -118,7 +118,8 @@
   * @brief Internal Low Speed oscillator (LSI) value.
   */
 #if !defined  (LSI_VALUE) 
-  #define LSI_VALUE            32000U    
+  #define LSI_VALUE            40000U //XXX port from source
+  // #define LSI_VALUE            32000U    
 #endif /* LSI_VALUE */                   /*!< Value of the Internal Low Speed oscillator in Hz
                                              The real value may vary depending on the variations
                                              in voltage and temperature.  */
@@ -145,7 +146,7 @@
   * @brief This is the HAL system configuration section
   */     
 #define  VDD_VALUE                    3300U  /*!< Value of VDD in mv */           
-#define  TICK_INT_PRIORITY            ((uint32_t)(1U<<__NVIC_PRIO_BITS) - 1U) /*!< tick interrupt priority (lowest by default)             */
+#define  TICK_INT_PRIORITY            0U //((uint32_t)(1U<<__NVIC_PRIO_BITS) - 1U) /*!< tick interrupt priority (lowest by default)             */
                                                                               /*  Warning: Must be set to higher priority for HAL_Delay()  */
                                                                               /*  and HAL_GetTick() usage under interrupt context          */
 #define  USE_RTOS                     0U
