@@ -26,7 +26,7 @@ char *banner = "\r\nhello, world!\r\nnanoSTM32F0 by MuseLab\r\n";
 
 int main(void)
 {
-  unsigned char i=0;
+  // unsigned char i=0;
   /* MCU Configuration----------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -40,16 +40,17 @@ int main(void)
 	
   MX_USB_DEVICE_Init();
 
-
   while (1) {
 
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
-		HAL_Delay(500);
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
-		HAL_Delay(500);
+    //turn on
 
-        CDC_Transmit_FS(banner, strlen(banner));
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+    HAL_Delay(500);
+    //turn off
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+    HAL_Delay(500);
 
+    CDC_Transmit_FS(banner, strlen(banner));
   }
 
 }
